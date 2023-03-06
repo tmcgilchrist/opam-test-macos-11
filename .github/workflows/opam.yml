@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os:
+          - macos-11
+
+        ocaml-compiler:
+          - 5.0.x
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+
+      - name: Test
+        run: |
+          brew update
+          brew install opam
+          opam init
