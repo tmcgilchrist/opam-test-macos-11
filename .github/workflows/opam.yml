@@ -25,3 +25,4 @@ jobs:
           brew update
           brew install opam
           opam init
+          opam switch create 5.0.0
